@@ -10,10 +10,12 @@ const PRODUCTS = [{
   brandName: 'SONTAG POCKET SHIRTS - KHAKI',
   price: '43,700won',
   discount: '[5%]',
-  code: 120476,
-  mileage: 437,
-  delivey: '제품으로만 50,000 원 이상 구매시 무료배송 (배송료 3,000원)',
-  origin: '한국'
+  deliveryDetails: {
+    code: 120476,
+    mileage: 437,
+    delivey: '제품으로만 50,000 원 이상 구매시 무료배송 (배송료 3,000원)',
+    origin: '한국'
+  }
 }]
 
 class App extends Component {
