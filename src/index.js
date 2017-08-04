@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { 
+  FlatList, 
+  StyleSheet,
+  View
+} from 'react-native';
 
+import BuyButton from './BuyButton';
+import CloseButton from './CloseButton';
 import Product from './Product';
 
 const PRODUCTS = [{
@@ -34,13 +40,29 @@ const PRODUCTS = [{
 class App extends Component {
   render() {
     return(
-      <FlatList
-        data={PRODUCTS}
-        renderItem={({ item, index }) => <Product product={item} /> }
-        keyExtractor={item => item.id}
-      />
+      <View style={styles.container}>
+        <FlatList 
+          data={PRODUCTS}
+          renderItem={({ item, index }) => <Product product={item} /> }
+          keyExtractor={item => item.id}
+          ListFooterComponent={<View style={styles.footer} />}
+        />
+        <CloseButton />
+        <BuyButton />
+      </View>
     );
   }
 }
 
 export default App;
+
+const styles=StyleSheet.create({
+  container: {
+    marginTop: 20,
+    backgroundColor: 'white'
+  },
+
+  footer: {
+    height: 55
+  }
+})
